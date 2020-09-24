@@ -1,0 +1,85 @@
+<% include ../partials/_header %>
+
+
+<div class="col-12">
+        <!-- Main Content -->
+        <main class="row">
+            <div class="col-12 bg-white py-3 my-3">
+                <div class="row">
+      
+                    <!-- Product Images -->
+                    <div class="col-lg-5 col-md-12 mb-3">
+                        <div class="col-12 mb-3">
+                            <div class="img-large border" style="background-image: url('<%= ofertauno.image %>')"></div>
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-sm-2 col-3">
+                                    <div class="img-small border" style="background-image: url('<%= ofertauno.image %>')" data-src="<%= ofertauno.image %>"></div>
+                                </div>
+                                <div class="col-sm-2 col-3">
+                                    <div class="img-small border" style="background-image: url('<%= ofertauno.imagedos %>')" data-src="<%= ofertauno.imagedos %>"></div>
+                                </div>
+                                <div class="col-sm-2 col-3">
+                                    <div class="img-small border" style="background-image: url('<%= ofertauno.imagetres %>')" data-src="<%= ofertauno.imagetres %>"></div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Images -->
+      
+                    <!-- Product Info -->
+                    <div class="col-lg-5 col-md-9">
+                        <div class="col-12 product-name large">
+                            <%= ofertauno.title %>
+                            <small> <a href="#"></a></small>
+                        </div>
+                        <div class="col-12 px-0">
+                            <hr>
+                        </div>
+                        <div class="col-12">
+                            <ul>
+                                <%= ofertauno.description %>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Product Info -->
+      
+                    <!-- Sidebar -->
+                    <div class="col-lg-2 col-md-3 text-center">
+                        <div class="col-12 border-left border-top sidebar h-100">
+                            <div class="row">
+                                <div class="col-12">
+                                <span class="detail-price">
+                                    $<%= ofertauno.price %>
+                                </span>
+                                    <span class="detail-price-old">
+                                    $<%= ofertauno.oldprice %>
+                                </span>
+                                </div>
+                                <div class="col-xl-5 col-md-9 col-sm-3 col-5 mx-auto mt-3">
+      
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <a href="/addtocardofertauno/<%= ofertauno.id %>" class="btn btn-outline-dark" role="button">Agregar al carro</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sidebar -->
+      
+                </div>
+            </div>
+      
+      
+        </main>
+        <!-- Main Content -->
+      </div>
+      
+
+
+
+<% include ../partials/_footer %>
+

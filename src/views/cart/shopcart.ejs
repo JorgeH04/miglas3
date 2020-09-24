@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Fash - Indumentaria</title>
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+
+    <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="/dist/assets/packages/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="/dist/assets/packages/owl-carousel/owl.theme.default.css">
+    <link rel="stylesheet" href="/dist/assets/packages/animate/animate.css">
+
+    <link rel="stylesheet" href="/dist/assets/css/theme.css">
+
+
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/o2system-venus-ui@1.1.0/dist/venus-ui.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="canonical" href="http://localhost:4000/index.html">
+
+    <link rel="stylesheet" href="/dist/assets/packages/nice-select/nice-select.css">
+    <link rel="stylesheet" href="/dist/assets/packages/cloudzoom/cloudzoom.css">
+    <link rel="stylesheet" href="/dist/assets/packages/animate/animate.css">
+
+
+</head>
+
+
+<body>
+    
+
+    <main class="main">
+        <div class="container-fluid">
+            <div class="breadcrumb-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="breadcrumb-wrap">
+                                <nav aria-label="breadcrumb">
+                                    <ul class="breadcrumb">
+                                        <li class="breadcrumb-item"  >
+                                            <a href="/">
+                                                Home
+                                            </a>
+                                        </li>
+                                        <li class="breadcrumb-item">
+                                            <a href="#" style="color:darkblue">
+                                                Carro
+                                            </a>
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">
+                                            <a href="#" style="color:black">
+                                                Checkout
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section list-products">
+                  	
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="cart-table table-responsive">
+                                <table class="table table-bordered" >
+                                    <thead style="background-color:darkblue">
+                                        <tr style="background-color:darkblue">
+                                            <th class="pro-thumbnail">Foto</th>
+                                            <th class="pro-title">Producto</th>
+                                             <th class="pro-quantity">Cantidad</th>
+                                            <th class="pro-subtotal">Precio</th>
+                                            <th class="pro-remove">Eliminar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                            <% if(products) { %>
+                                                <% for(var i = 0; i < products.length; i++) { %>	
+                                        
+                                        <tr>
+                                            <td class="pro-thumbnail">
+                                                <a href="#">
+                                                    <img class="img-fluid" src="<%= products[i].item.image%>" alt="Product" />
+                                                </a>
+                                            </td>
+                                            <td class="pro-title">
+                                                <a href="#"><%= products[i].item.title %> </a>
+                                            </td>
+                                             
+                                            <td class="pro-quantity">
+                                                    <a href="/reduce/<%= products[i].item._id %>" class="btn btn-black mx-1"><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+                                                    <span class="btn btn-black mx-1"><%= products[i].qty %></span>
+                                                    <a href="/sumar/<%= products[i].item._id %>" class="btn btn-black mx-1"><i class="fa fa-chevron-up" aria-hidden="true"></i></a> 
+                                            </td>
+                                            <td class="pro-subtotal">
+                                                <span>$<%= products[i].price %></span>
+                                            </td>
+                                            <td class="pro-remove">
+                                                <a href="/remove/<%= products[i].item._id %>">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <% } %>       
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                            <div class="cart-update-option d-block d-md-flex justify-content-between">
+                                <div class="apply-coupon-wrapper">
+                                    
+                                </div>
+                                <div class="cart-update">
+                                    <a href="/" class="square-btn" style="background-color:darkblue">Seguir comprando</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-5 ml-auto">
+                            <div class="cart-calculator-wrapper">
+                                <div class="cart-calculate-items">
+                                    <h3>Total</h3>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                          
+                                            <tr>
+                                                <td>Envío</td>
+                                                <td>$-</td>
+                                            </tr>
+
+                                            <tr class="total">
+                                                <td>Total</td>
+                                                <td class="total-amount">$<%= totalPrice %></td>
+                                                <% } else { %>                                  
+                                                    <% } %>
+                                                    
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <a href="/prepagar" class="square-btn d-block text-center" style="background-color:darkblue">Iniciar Compra</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+       
+    </footer>
+
+  
+
+    <!-- Start Search Popup -->
+    <div class="search-box">
+        <form class="minisearch" action="#">
+            <div class="search-area">
+                <input type="text" placeholder="Search Our Catalog">
+                <div class="action">
+                    <a href="#">
+                        <i class="fa fa-search"></i>
+                    </a>
+                </div>
+            </div>
+        </form>
+        <div class="close-btn">
+            <span>close</span>
+        </div>
+    </div>
+    <!-- End Search Popup -->
+
+    <!-- Scroll to top start -->
+    <div class="scroll-top not-visible">
+        <i class="fa fa-angle-up"></i>
+    </div>
+    <!-- Scroll to Top End -->
+
+    <script type="text/javascript" src="/dist/venus-ui.js"></script>
+    <script type="text/javascript" src="/dist/assets/packages/owl-carousel/owl.carousel.js"></script>
+    <script type="text/javascript" src="/dist/assets/js/theme.js"></script>
+</body>
+
+</html>
